@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Heart, MessageCircle, Users, UserPlus, UserMinus, ImageIcon } from 'lucide-react';
 
 interface Notification {
@@ -160,12 +160,16 @@ const NotificationsPanel = () => {
             }`}
           >
             <div className="flex items-start gap-3">
-              {/* Avatar */}
-              <img
-                src={notification.user.avatar}
-                alt={notification.user.name}
-                className="w-10 h-10 rounded-full object-cover flex-shrink-0"
-              />
+                          {/* Icon */}
+                          <div className="flex-shrink-0">
+                            {getNotificationIcon(notification.type)}
+                          </div>
+                          {/* Avatar */}
+                          <img
+                            src={notification.user.avatar}
+                            alt={notification.user.name}
+                            className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                          />
 
               {/* Content */}
               <div className="flex-1 min-w-0">
